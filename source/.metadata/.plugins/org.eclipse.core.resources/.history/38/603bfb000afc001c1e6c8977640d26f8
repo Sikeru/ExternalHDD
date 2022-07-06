@@ -1,0 +1,9 @@
+package scienceClass.com.main.dao;
+
+import java.util.List;
+
+public interface MainDAO {
+
+	public List selectFilename();
+
+}

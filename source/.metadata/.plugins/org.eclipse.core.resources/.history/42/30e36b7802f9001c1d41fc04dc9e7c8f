@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+	
+	header #util li {
+		float: left;
+		margin: 0 10px;
+	}
+	header #searchArea{
+		clear: both;
+		text-align: center;
+	}
+	
+	header #inner_menu_wrap{
+		position: relative;
+		width : 128rem;
+		margin: 0 auto;
+	}
+	
+	header #util{
+		float: right;
+	}
+	
+	header #logo{
+		width : 100px;
+		height : 100px;
+		position: absolute;
+		top:0px;
+	}
+	
+	
+</style>
+</head>
+<body>
+	<div id="inner_menu_wrap">
+		<div id="util">
+			<ul>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="#">로그인</a></li>
+				<li><a href="#">도움말</a></li>
+				<li><a href="#">FAQ</a></li>
+			</ul>
+		</div>
+		
+		<div id="searchArea">
+			<input type="search">
+			<input type="button" value="검색">
+		</div>
+		
+		<div id="logo"><a href="#">로고</a></div>
+	</div>
+</body>
+</html>

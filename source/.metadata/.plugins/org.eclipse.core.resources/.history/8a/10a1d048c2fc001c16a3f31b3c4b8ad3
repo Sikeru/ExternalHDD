@@ -1,0 +1,5 @@
+package scienceClass.com.main.service;
+
+public class MainServiceImpl implements MainService{
+
+}

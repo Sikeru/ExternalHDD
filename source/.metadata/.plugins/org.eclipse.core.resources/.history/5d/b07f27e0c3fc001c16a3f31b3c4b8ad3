@@ -1,0 +1,8 @@
+package scienceClass.com.main.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository("MainDAO")
+public class MainDAO {
+	
+}

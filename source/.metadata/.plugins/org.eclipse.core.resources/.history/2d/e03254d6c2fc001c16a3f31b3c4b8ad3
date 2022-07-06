@@ -1,0 +1,15 @@
+package scienceClass.com.main.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import scienceClass.com.main.dao.MainDAO;
+
+@Service("MainService")
+public class MainServiceImpl implements MainService{
+	@Resource(name="MainDAO")
+	private MainDAO mainDAO;
+	
+	
+}

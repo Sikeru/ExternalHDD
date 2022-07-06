@@ -1,0 +1,21 @@
+package scienceClass.com.main.service;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import scienceClass.com.main.dao.MainDAO;
+
+@Service("MainService")
+public class MainServiceImpl implements MainService{
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	@Override
+	public List selectFilename() {
+		MainDAO dao = sqlSession.getMapper(MainDAO.class);
+		return dao.selectFilename();
+	}
+}

@@ -1,0 +1,15 @@
+package scienceClass.com.main.dao;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
+
+@Repository("mainDAO")
+public class MainDAO {
+	@Resource(name="egov.sqlSession")
+	SqlSessionFactory sqlSession;
+	public List<String> selectImgName() throws Exception;
+}

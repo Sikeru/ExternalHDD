@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<h4>타이틀</h4>
+	<div class="article">
+		<p>문제</p>
+	</div>
+	<div class="article">
+		<p>문제</p>
+	</div>
+	<div class="article">
+		<p>문제</p>
+	</div>
+	<div class="article">
+		<p>문제</p>
+	</div>
+</body>
+</html>

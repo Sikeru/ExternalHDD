@@ -1,0 +1,5 @@
+package scienceClass.com.main.service;
+
+public interface Mainservice {
+
+}

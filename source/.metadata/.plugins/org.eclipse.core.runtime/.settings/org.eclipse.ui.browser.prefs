@@ -1,0 +1,4 @@
+browser-choice=0
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="0">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=file\:///I\:/Dev/\uAC1C\uC778\uD504\uB85C\uC81D\uD2B8/source/scienceClass/src/main/webapp/images/scienceClass/sampleimg.jpg|*|file\:/I\:/Dev/\uAC1C\uC778\uD504\uB85C\uC81D\uD2B8/source/scienceClass/src/main/webapp/images/scienceClass/sampleimg.jpg|*|http\://localhost\:8090/egovframework-all-in-one/WEB-INF/classes/scienceClass/com/main/MainController.java|*|http\://localhost\:8090/egovframework-all-in-one/faces/WEB-INF/jsp/scienceClass/common/main/layout.jsp|*|

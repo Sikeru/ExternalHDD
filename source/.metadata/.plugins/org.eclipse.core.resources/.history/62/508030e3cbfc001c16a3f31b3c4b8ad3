@@ -1,0 +1,23 @@
+package scienceClass.com.main.service;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
+
+import scienceClass.com.main.dao.MainDAO;
+
+@Service("mainService")
+public class MainServiceImpl implements MainService{
+	@Resource(name="mainDAO")
+	private MainDAO mainDAO;
+	
+	SqlSession sqlSession;
+	
+	public List<String> selectImgName() throws Exception{
+		mainDAO = sqlSession.getMapper(MainDAO.class);
+		return mainDAO.selectImgName();
+	}
+}

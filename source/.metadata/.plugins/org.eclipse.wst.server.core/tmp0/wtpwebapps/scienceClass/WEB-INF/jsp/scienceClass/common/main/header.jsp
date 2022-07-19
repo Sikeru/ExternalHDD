@@ -14,6 +14,7 @@
 				<li><a href="#">로그인</a></li>
 				<li><a href="#">도움말</a></li>
 				<li><a href="#">FAQ</a></li>
+				<li><a href="${contextPath}/egovframework-all-in-one/admin.do">관리자페이지</a></li>
 			</ul>
 		</div>
 		<div id="searchArea">

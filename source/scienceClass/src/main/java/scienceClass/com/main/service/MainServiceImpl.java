@@ -1,6 +1,7 @@
 package scienceClass.com.main.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -13,7 +14,10 @@ public class MainServiceImpl implements MainService{
 	@Resource(name="mainDAO")
 	private MainDAO mainDAO;
 	
-	public List<String> selectImgName() throws Exception{
+	public List<Map<String, String>> selectImgName() throws Exception{
 		return mainDAO.selectImgName();
+	}
+	
+	public void test() {
 	}
 }

@@ -106,7 +106,8 @@ function fncOnChangeImage() {
 			    <div class="egov_file_box" style="display:inline-block">
 				<label for="egovfile_0" id="file_label"><spring:message code="title.attachedFileSelect"/></label> <!-- 파일선택 -->
 				<input type="file" name="file_1" id="egovfile_0" title="<spring:message code="uss.ion.msi.mainImageRegist.mainImage" />" onchange="fncOnChangeImage();" /> 
-				</div><input name="mainImage" id="mainImage" type="text" title="<spring:message code="uss.ion.msi.mainImageRegist.mainImage"/>" value="<c:out value="${mainImage.image}"/>" maxLength="30" readonly="readonly" style="width:525px" />
+				</div>
+				<input name="mainImage" id="mainImage" type="text" title="<spring:message code="uss.ion.msi.mainImageRegist.mainImage"/>" value="<c:out value="${mainImage.image}"/>" maxLength="30" readonly="readonly" style="width:525px" />
 			</td>
 		</tr>
 		<tr>

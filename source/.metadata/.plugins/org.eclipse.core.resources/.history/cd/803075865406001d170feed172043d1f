@@ -1,0 +1,12 @@
+package scienceClass.com.admin.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public interface AdminService {
+	public List<Map<String, String>> selectMainImgList() throws Exception;
+	public int lottoListCnt() throws Exception;
+	public void insterlotto(String[] lottoArr, String bunusnum) throws Exception;
+	public void insterlotto(HashMap<String, Integer> lottolist) throws Exception;
+}

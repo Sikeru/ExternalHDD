@@ -28,10 +28,9 @@
 		</div>
 		<div id="slider">
 			<ul id="movebox">
-				<li id="f"><img class="img" src="<c:url value='/cmm/fms/getImage.do?atchFileId=FILE_000000000000025'/>" height="400px" width="100%"></li>
-				<li id="s"><img class="img" src="${imgname2}" height="400px" width="100%"></li>
+				<li id="f"><img class="img" src="" height="400px" width="100%"></li>
+				<li id="s"><img class="img" src="" height="400px" width="100%"></li>
 			</ul>
-			
 		</div>
 		<div id="container">
             <tiles:insertAttribute name="body" />
@@ -51,33 +50,71 @@
 	var k =150;
 	var c = 0;
 	var t=0;
+	var imgList = [];
+	var blank = 0;
+	var imgindex = 2;
+	
+	<c:forEach var="imgList" items="${imgNameList}" varStatus="status">
+		if("${imgList.REFLCT_AT}" == "Y"){
+			imgList["${status.index}"-blank]="${imgList.IMAGE_FILE}"
+		}else{
+			blank=blank+1;
+		}
+	</c:forEach>
+
+	for(var i=0; i<imgList.length; i++){
+		console.log(imgList[i]);
+	}
+	
+	if(imgList.length<2){
+		img[0].src="<c:url value='/cmm/fms/getImage.do'/>?atchFileId="+imgList[0];
+		img[1].src="<c:url value='/cmm/fms/getImage.do'/>?atchFileId="+imgList[0];
+	}else{
+		img[0].src="<c:url value='/cmm/fms/getImage.do'/>?atchFileId="+imgList[0];
+		img[1].src="<c:url value='/cmm/fms/getImage.do'/>?atchFileId="+imgList[1];
+	}
+	
 	
  	setInterval(slider, 5000);
 	
+ 	i=0;
 	function slider(){
 		var slider = setInterval(move, 10);
 		
 		function move(){
-			i=i+0.1;
+			i=i+1;
 			c=c+1;
 			movebox.style.right=i+"%";
-			console.log(s.style.left);
-			if(c==1000){
+			if(c==100){
 				clearInterval(slider);
 				c=0;
+				if(imgindex>=imgList.length){
+					imgindex=0;
+				}
 				
 				if(t==0){
+					if(imgList.length>=3){
+						img[0].src="<c:url value='/cmm/fms/getImage.do'/>?atchFileId="+imgList[imgindex];
+						imgindex=imgindex+1;
+					}
+					
 					f.style.left=j+"%";
 					j=j+100;
 					t=1;
 					return;
 				}
 				if(t==1){
+					if(imgList.length>=3){
+						img[1].src="<c:url value='/cmm/fms/getImage.do'/>?atchFileId="+imgList[imgindex];
+						imgindex=imgindex+1;
+					}
+					
 					s.style.left=k+"%";
 					k=k+100;
 					t=0;
 					return;
 				}
+				
 			}
 		}
 	}

@@ -1,0 +1,94 @@
+package scienceClass.com.admin.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import scienceClass.com.admin.service.AdminService;
+
+@Controller("AdminController")
+public class AdminController {
+	@Resource(name = "adminService")
+	private AdminService adminService;
+
+	@RequestMapping(value = "/admin/sliderList.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String sliderList(Model model) throws Exception {
+		List<Map<String, String>> mainImgList = adminService.selectMainImgList();
+		model.addAttribute("mainImgList", mainImgList);
+		return "/admin/sliderList";
+	}
+
+	@RequestMapping(value = "/admin/sliderRegist.do", method = RequestMethod.GET)
+	public String sliderRegView(Model model) throws Exception {
+		return "/admin/sliderRegist";
+	}
+
+	@RequestMapping(value = "/admin/sliderAdd.do", method = RequestMethod.POST)
+	public String sliderAdd(Model model, @RequestParam HashMap<String, Integer> slider) throws Exception {
+
+		System.out.println(slider.get("imageNm"));
+		return "/admin/sliderList";
+	}
+
+	@RequestMapping(value = "/admin/lotto.do", method = RequestMethod.GET)
+	public String lotto() throws Exception {
+		return "/admin/lotto";
+	}
+
+	@RequestMapping(value = "/admin/lottoAdd.do", method = RequestMethod.POST)
+	public String lottoAdd(Model model, HttpServletRequest request, @RequestParam HashMap<String, Integer> newLottoList)
+			throws Exception {
+		long maxnum = 45 * 44 * 43 * 42 * 41 * 40 * 39;
+		long lottoListCnt = adminService.lottoListCnt();
+		int overlapCount = 0;
+		List<Map<String, Integer>> lottoList = new ArrayList<Map<String, Integer>>();
+		
+
+		if (lottoListCnt > 0) {
+			lottoList = adminService.selectlottoList();
+
+			for (long i = 0; i < lottoListCnt; i++) {
+				if (lottoList.get((int) i).get("NUM1") == newLottoList.get("num1")) {
+					if (lottoList.get((int) i).get("NUM2") == newLottoList.get("num2")) {
+						if (lottoList.get((int) i).get("NUM3") == newLottoList.get("num3")) {
+							if (lottoList.get((int) i).get("NUM4") == newLottoList.get("num4")) {
+								if (lottoList.get((int) i).get("NUM5") == newLottoList.get("num5")) {
+									if (lottoList.get((int) i).get("NUM6") == newLottoList.get("num6")) {
+										adminService.increaseOverlap(newLottoList);
+										overlapCount=1;
+										break;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			if(overlapCount<=0) {
+				adminService.insterlotto(newLottoList);
+				overlapCount=0;
+			}else {
+				overlapCount=0;
+			}
+
+		} else {
+			adminService.insterlotto(newLottoList);
+		}
+		
+		
+
+		return "/admin/lotto";
+	}
+
+}

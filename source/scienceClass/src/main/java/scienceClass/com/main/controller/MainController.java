@@ -1,6 +1,7 @@
 package scienceClass.com.main.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -26,12 +27,14 @@ public class MainController {
 	@RequestMapping(value = "/main.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String main(Model model) throws Exception {
 		
-		List<String> imgName = mainService.selectImgName();
-		System.out.println(imgName);
-		 
-		model.addAttribute("imgname", "./images/scienceClass/sampleimg.jpg");
-		model.addAttribute("imgname2", "./images/scienceClass/sampleimg2.jpg");
+		List<Map<String, String>> imgName = mainService.selectImgName();
+		model.addAttribute("imgNameList", imgName);
 		return "main";
+	}
+	
+	@RequestMapping(value="/admin.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public String admin(Model model) throws Exception{
+		return "admin";
 	}
 	
 	@RequestMapping(value = "/loginView.do")

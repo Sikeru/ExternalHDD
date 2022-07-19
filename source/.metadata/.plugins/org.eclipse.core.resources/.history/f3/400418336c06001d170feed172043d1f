@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.1//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="adminDAO">
+	<select id="selectMainImgList" resultType="hashmap">
+		SELECT IMAGE_NM, IMAGE, IMAGE_DC, REFLCT_AT FROM COMTNMAINIMAGE ORDER BY IMAGE_FILE ASC
+	</select>
+	
+	<select id="lottoListCnt" resultType="int">
+		SELECT COUNT(*) FROM LOTTO
+	</select>
+	
+	<insert id="insterlotto" parameterType="hashmap">
+		INSERT INTO LOTTO(LOTTONO, NUM1, NUM2, NUM3, NUM4, NUM5, NUM6, BONUSNUM, OVERLAP) 
+		VALUES(LOTTONUM.NEXTVAL, #{num1}, #{num2}, #{num3}, #{num4}, #{num5}, #{num6}, #{num7}, 0)
+	</insert>
+	
+	<select	id="selectLottoList" resultType="hashmap">
+		SELECT NUM1, NUM2, NUM3, NUM4, NUM5, NUM6, BONUSNUM 
+		FROM LOTTO
+		ORDER BY NUM1 ASC, NUM2 ASC, NUM3 ASC, NUM4 ASC, NUM5 ASC, NUM6 ASC, BONUSNUM ASC
+	</select>
+	
+	<insert id="increaseOverlap" parameterType="hashmap">
+		
+	</insert>
+	
+</mapper>
